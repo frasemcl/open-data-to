@@ -2,5 +2,5 @@
 #Then:
 
 library(rsconnect)
-setwd("~/Projects/GitHub/open-data-to/shiny-tree-app") #in my case
+setwd("~/Projects/GitHub/open-data-to/tor-tree-app-v2") #in my case
 deployApp()

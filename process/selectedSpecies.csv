@@ -1,0 +1,283 @@
+,species,include
+1,Alder,0
+2,"Alder, European",0
+3,"Almond, flowering",0
+4,Apple,0
+5,"Apple, common",0
+6,"Apple, Sargents",0
+7,"Apple, Siberian",0
+8,"Apple, wild crab",0
+9,Apricot,0
+10,Ash,0
+11,"Ash, black",0
+12,"Ash, black 'Gold Fall'",0
+13,"Ash, blue",0
+14,"Ash, European",0
+15,"Ash, green",0
+16,"Ash, green 'Marshall's Seedless",0
+17,"Ash, green 'Patmore'",0
+18,"Ash, green 'Summit'",0
+19,"Ash, white",0
+20,"Ash, white 'Autumn Applause'",0
+21,"Ash, white 'Autumn Purple'",0
+22,"Aspen, large tooth",1
+23,"Aspen, trembling",1
+24,Bald cypress,0
+25,"Basswood, American",1
+26,"Basswood, American 'Continental'",1
+27,"Basswood, Redmond",1
+28,Beech,0
+29,"Beech, American",1
+30,"Beech, European",0
+31,"Beech, European 'columnar'",0
+32,"Beech, European 'Copper'",0
+33,"Beech, European purple leaf",0
+34,Birch,0
+35,"Birch, black",0
+36,"Birch, European",0
+37,"Birch, European cutleaf weeping",0
+38,"Birch, European young's",0
+39,"Birch, grey",1
+40,"Birch, Himalayan 'Jacquemonti'",0
+41,"Birch, river",0
+42,"Birch, river 'Heritage'",0
+43,"Birch, white",1
+44,"Birch, yellow",1
+45,Black locust,0
+46,"Black locust, 'Purple robe'",0
+47,Blackgum,1
+48,Blue Beech,0
+49,"Buckeye, Ohio",1
+50,"Buckeye, yellow",0
+51,"Buckthorn, European",0
+52,Butternut,1
+53,Butternut hybrid,0
+54,"Catalpa, mop head",0
+55,"Catalpa, Northern",0
+56,"Catalpa, Southern",0
+57,Cedar,0
+58,"Cedar, Eastern red",1
+59,"Cedar, Western red",1
+60,"Cedar, white",1
+61,Cherry,0
+62,"Cherry, black",1
+63,"Cherry, choke",0
+64,"Cherry, choke 'Shubert'",0
+65,"Cherry, Japanese",0
+66,"Cherry, Japanese 'Kwanzan'",0
+67,"Cherry, pin",1
+68,"Cherry, purple-leaf sand",0
+69,"Cherry, sargent",0
+70,"Cherry, sweet",0
+71,"Cherry, weeping Higan",0
+72,"Chestnut, American",1
+73,"Cork tree, Amur",0
+74,Cucumbertree,0
+75,Dawn Redwood,0
+76,"Devil""s walking stick",0
+77,Dogwood,0
+78,"Dogwood, Cornelian Cherry",0
+79,"Dogwood, Pink Flowering",0
+80,Douglas Fir,1
+81,"Elder, American",0
+82,Elm,0
+83,"Elm, 'Homestead'",0
+84,"Elm, 'Princeton'",0
+85,"Elm, American",1
+86,"Elm, American 'Delaware'",0
+87,"Elm, American 'liberty'",0
+88,"Elm, American 'Valley Forge'",0
+89,"Elm, Chinese",0
+90,"Elm, David",0
+91,"Elm, David 'Accolade'",0
+92,"Elm, English",0
+93,"Elm, hybrid 'Pioneer'",0
+94,"Elm, rock",1
+95,"Elm, Siberian",0
+96,"Elm, slippery",1
+97,"Elm, wych",0
+98,"Elm, wych 'Camperdown'",0
+99,"Falsecypress, Japanese",0
+100,Fir,0
+101,"Fir, balsam",1
+102,"Fir, European white",0
+103,"Fir, white",1
+104,"Gingko, Autumn Gold",0
+105,"Gingko, columnar",0
+106,Ginkgo,0
+107,Golden Chain tree,0
+108,Golden rain tree,0
+109,Hackberry,1
+110,Hawthorn,1
+111,"Hawthorn, cockspur",0
+112,"Hawthorn, green 'Winter King'",0
+113,"Hawthorn, Morden",0
+114,Hazel,0
+115,"Hazel, American",0
+116,"Hazel, Turkish",0
+117,"Hemlock, eastern",1
+118,Hickory,0
+119,"Hickory, big shellbark",1
+120,"Hickory, bitternut",1
+121,"Hickory, pignut",1
+122,"Hickory, shagbark",1
+123,Honey locust,1
+124,"Honey locust, 'Ruby Lace'",0
+125,"Honey locust, 'Shade master'",0
+126,"Honey locust, 'Skyline'",0
+127,"Honey locust, 'Sunburst'",0
+128,"Hornbeam, European",0
+129,"Hornbeam, European Pyramidal",0
+130,Horsechestnut,0
+131,"Horsechestnut, 'Baumanii'",0
+132,"Horsechestnut, 'Fort Mcnair'",0
+133,"Horsechestnut, 'Ruby red'",0
+134,Ironwood,1
+135,Juniper,0
+136,"Katsura, Japanese",0
+137,Kentucky coffee,1
+138,"Kentucky Coffeetree, 'Espresso'",0
+139,Larch,0
+140,"Larch, European",1
+141,"Larch, Japanese",0
+142,Lilac,0
+143,"Lilac, Japanese",0
+144,Linden,0
+145,"Linden, broad-leaved",0
+146,"Linden, Crimean",0
+147,"Linden, Littleleaf",0
+148,"Linden, littleleaf 'Glenleven'",0
+149,"Linden, littleleaf 'Greenspire'",0
+150,"Linden, littleleaf 'Summer Sprite'",0
+151,"Linden, silver",0
+152,Maackia,0
+153,"Magnolia, kobus",0
+154,"Magnolia, saucer",0
+155,Maple,0
+156,Maple Mountain,0
+157,Maple Norway 'Superform',0
+158,"Maple, 'Pacific sunset'",0
+159,"Maple, Amur",0
+160,"Maple, black",1
+161,"Maple, black columnar",0
+162,"Maple, freeman",1
+163,"Maple, Freeman 'Armstrong'",0
+164,"Maple, Freeman 'Autumn Blaze'",0
+165,"Maple, Freeman 'Celebration'",0
+166,"Maple, freeman 'Marmo'",0
+167,"Maple, freeman 'Sienna Glen'",0
+168,"Maple, hedge",0
+169,"Maple, Japanese",0
+170,"Maple, Manitoba",0
+171,"Maple, Norway",0
+172,"Maple, Norway 'Autumn Blaze'",0
+173,"Maple, Norway 'Crimson King'",0
+174,"Maple, Norway 'Deborah'",0
+175,"Maple, Norway 'Emerald Queen '",0
+176,"Maple, Norway 'Harlequin'",0
+177,"Maple, Norway 'Red Royal'",0
+178,"Maple, Norway 'Schwedler'",0
+179,"Maple, Norway 'Summershade'",0
+180,"Maple, Norway columnar",0
+181,"Maple, Norway globe",0
+182,"Maple, paperbark",0
+183,"Maple, red",1
+184,"Maple, red 'Karpick""",0
+185,"Maple, shantung 'Keithsform'",0
+186,"Maple, silver",1
+187,"Maple, silver 'Pyramid'",0
+188,"Maple, silver 'Queen'",0
+189,"Maple, striped",0
+190,"Maple, sugar",1
+191,"Maple, sugar 'Green mountain'",0
+192,"Maple, sugar 'Legacy'",0
+193,"Maple, sycamore",0
+194,"Maple, tatarian",0
+195,Mountain ash,0
+196,"Mountain ash, American",1
+197,"Mountain ash, European",0
+198,"Mountain ash, oak leaf",0
+199,"Mountain ash, Showy",0
+200,"Mountain ash, whitebeam",0
+201,Mulberry,0
+202,"Mulberry, red",0
+203,"Mulberry, white",0
+204,"Mulberry, white 'weeping'",0
+205,Nootka cypress,0
+206,Oak,0
+207,"Oak, black",1
+208,"Oak, bur",1
+209,"Oak, chinquapin",1
+210,"Oak, English",0
+211,"Oak, English 'pyramidal'",0
+212,"Oak, pin",1
+213,"Oak, red",1
+214,"Oak, scarlett",0
+215,"Oak, shingle",0
+216,"Oak, Shumard",1
+217,"Oak, swamp white",1
+218,"Oak, white",1
+219,"Olive, Russian",0
+220,"Pagoda, Japanese",0
+221,Peach,0
+222,Pear,0
+223,"Pear, 'Bradford'",0
+224,"Pear, 'Chanticleer'",0
+225,"Peashrub, Siberian",0
+226,Pine,0
+227,Pine scots,0
+228,"Pine, Austrian",0
+229,"Pine, Eastern white",1
+230,"Pine, jack",1
+231,"Pine, red",1
+232,"Planetree, London",0
+233,"Planetree, London 'Bloodgood'",0
+234,"Planetree, London 'Exclamation'",0
+235,Plum,0
+236,"Plum, Canada",0
+237,Poplar,0
+238,Poplar white silver,0
+239,"Poplar, balsam",1
+240,"Poplar, black 'Lombardy'",0
+241,"Poplar, Chinese",0
+242,"Poplar, eastern cottonwood",0
+243,"Poplar, hybrid 'Carolina'",0
+244,"Poplar, white 'Boleana'",0
+245,Redbud,0
+246,Sassafras,1
+247,Serviceberry,1
+248,Serviceberry 'Robin hill',0
+249,"Serviceberry, smooth",0
+250,"Smoketree, American",0
+251,Spruce,0
+252,"Spruce, black",1
+253,"Spruce, Colorado blue",1
+254,"Spruce, Norway",1
+255,"Spruce, Serbian",0
+256,"Spruce, white",1
+257,Sumac Staghorn,1
+258,Sweetgum,1
+259,Sycamore,1
+260,"Tree, of heaven",0
+261,Tulip tree,1
+262,Tulip tree 'Columnar',0
+263,Walnut,0
+264,"Walnut, black",1
+265,"Walnut, English",0
+266,Willow,0
+267,"Willow, black",1
+268,"Willow, Corkscrew",0
+269,"Willow, crack",0
+270,"Willow, golden weeping",0
+271,"Willow, laurel",0
+272,"Willow, pussy",0
+273,"Willow, weeping",0
+274,Winged Euonymus (burning bush),0
+275,Witch-Hazel,0
+276,"Yellowwood, Kentucky",0
+277,Yew,0
+278,"Yew, Japanese",0
+279,Zelkova,0
+280,"Zelkova, 'Halka'",0
+281,"Zelkova, Japanese",0
+282,"Zelkova, Japanese 'Village Green'",0

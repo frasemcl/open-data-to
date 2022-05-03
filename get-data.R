@@ -6,7 +6,7 @@ library(sf)
 library(RColorBrewer)
 
 ###################################################
-# Fraser McLaughlin         ```````````# April 2022
+# Fraser McLaughlin           ```````````# May 2022
 
 # FORMAT DATA FOR SHINY TORONTO STREET TREE MAP APP
 ###################################################
@@ -21,29 +21,37 @@ resources <- list_package_resources("6ac4569e-fd37-4cbc-ac63-db3624c5f6a2")
 # my chosen resource to download, id from 'resources'
 streetTrees<-get_resource('b65cd31d-fabc-4222-83ef-8ddd11295d2b')
 
-# Didn't use the following from city's instructions:
-# # identify datastore resources; by default, Toronto Open Data sets datastore resource format to CSV for non-geospatial and GeoJSON for geospatial resources
-# datastore_resources <- filter(resources, tolower(format) %in% c('csv', 'geojson'))
-# # load the first datastore resource as a sample
-# data <- filter(datastore_resources, row_number()==1) %>% get_resource()
+
+#Set up a csv for user to choose which species they want to map. I am interested in native and naturalized trees. 
+treeSpec<-as_tibble(unique(streetTrees$COMMON_NAME))
+treeSpec<-treeSpec %>%
+  rename(species = value) %>% 
+  add_column(include = 0) %>% 
+  arrange(species) %>% 
+  filter(!is.na(species), species != '')
+#Output the species for user to manually edit to include only species they want:
+write.csv(treeSpec, 'process/selectSpecies.csv')
+  
+##########
+# TO DO:##
+##########
+#Open up 'selectSpecies.csv' in the process folder and change from 0 to 1 all species you wan to map:
+#WARNING your app will be very slow if you try to include all of them. 
+#once that is done, save as 'selectedSpecies.csv' and proceed
+
+selected <- read_csv('process/selectedSpecies.csv')
+selected <- selected %>% 
+  filter(include == 1)
+streetTreesFilt <- selected$species
 
 
-# Filtering out the biggest and smallest trees to make size more manageable and remove anomalies
-streetTreesFilt<-streetTrees %>% 
-  filter(!is.na(DBH_TRUNK), DBH_TRUNK>0, DBH_TRUNK<=150) 
-  # arrange(desc(DBH_TRUNK))
-# biggest<-streetTreesFilt %>% 
-#   slice_head(n =10)
-
-
-# # Testing to get this sub right
-# geom <- "-79.386029074939, 43.7266807113692"
-# (Long<-sub(", .*", "", geom))
-# (Lat<-sub(".*, ", "", geom))
-
-#Formatting the data and selecting columns I'm interested in:
-treesSFprocess<-streetTreesFilt %>%
-  filter(!is.na(COMMON_NAME), COMMON_NAME != "") %>%
+#Formatting the data and selecting columns I'm interested in, clunky first pass at dealing with the lat/long.
+#Google street view suggests DBH above 200 is measurement error.
+treesSFprocess<-streetTrees %>%
+  filter(COMMON_NAME %in% streetTreesFilt,
+         !is.na(DBH_TRUNK),
+         DBH_TRUNK <= 200,
+         DBH_TRUNK > 0) %>%
   arrange(COMMON_NAME) %>% 
   mutate(geom = sub("\\).*", "", sub(".*\\(", "", geometry)) ) %>% 
   mutate(Longitude=sub(", .*", "", geom),
@@ -57,10 +65,10 @@ treesSF<-treesSFprocess %>%
                         "<br><strong>Address: </strong>",ADDRESS, " ",STREETNAME,
                         "<br><strong>DBH (cm): </strong>",DBH_TRUNK
                         ),
-         radius = ifelse(DBH_TRUNK <=10, 3,
-                         ifelse((DBH_TRUNK > 10 & DBH_TRUNK <=50),4,
-                                ifelse((DBH_TRUNK > 50 & DBH_TRUNK <=100),5,
-                                       ifelse((DBH_TRUNK > 100 & DBH_TRUNK <=150),6,7))))
+         radius = ifelse(DBH_TRUNK <=10, 5,
+                         ifelse((DBH_TRUNK > 10 & DBH_TRUNK <=50),6,
+                                ifelse((DBH_TRUNK > 50 & DBH_TRUNK <=100),7,
+                                       ifelse((DBH_TRUNK > 100 & DBH_TRUNK <=150),8,9))))
   )
 
 
@@ -71,7 +79,8 @@ treesSF<-treesSFprocess %>%
 # https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=5
 # display.brewer.all()
 # pal <- colorNumeric(palette = colorRamp(c("#66c2a4", "#006d2c"), interpolate = "spline"), domain = treesSF$DBH_TRUNK)
-pal <- colorNumeric(palette = "Greens", domain = treesSF$DBH_TRUNK)
+pal <- colorBin(palette = "Greens", domain = treesSF$DBH_TRUNK, bins = c(0,1,2,4,8,16,32,64,200))
+
 
 leaflet(treesSF[1:10000,]) %>%
   addProviderTiles("CartoDB.Positron") %>%
@@ -82,10 +91,10 @@ leaflet(treesSF[1:10000,]) %>%
                    opacity = 0.85,
                    popup = ~popup,
                    fillColor = ~pal(DBH_TRUNK),
-                   fillOpacity = .75) %>% 
-  addLegend("bottomleft", pal = pal, values = ~DBH_TRUNK,
-            title = "Tree Trunk<br>DBH (cm)",
-            opacity = 1) %>% 
+                   fillOpacity = .75)%>% 
+  # addLegend("bottomleft", pal = pal, values = ~DBH_TRUNK,
+  #           title = "Tree Trunk<br>DBH (cm)",
+  #           opacity = 1) 
   leaflet.extras::addSearchOSM(options = searchOptions(collapsed = T, hideMarkerOnCollapse = T)) %>%
   addControlGPS(options = gpsOptions(position = "topleft", activate = TRUE, 
                                                  autoCenter = TRUE, maxZoom = NULL, 
@@ -97,16 +106,15 @@ leaflet(treesSF[1:10000,]) %>%
 
  
 # EXPORT back to a CSV, that will be read into the Shiny App:
-st_write(treesSF, "./data/treesSF.csv", layer_options = "GEOMETRY=AS_XY")
-# Or here, depending on where my wd is at the time:
-# st_write(treesSF, "./shiny-tree-app/data/treesSF.csv", layer_options = "GEOMETRY=AS_XY")
+# You may have to delete the file first if it already exists.
+st_write(treesSF, "./shiny-tree-app/data/treesSF.csv", layer_options = "GEOMETRY=AS_XY")
 
 
 
 
 #Process work:
-ggplot(streetTreesFilt, mapping = aes(x = DBH_TRUNK))+
-  geom_histogram()
+# ggplot(treesSF, mapping = aes(x = DBH_TRUNK))+
+#   geom_histogram()
 
 
 
