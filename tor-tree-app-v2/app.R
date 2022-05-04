@@ -28,10 +28,16 @@ ui <- bootstrapPage(
                 selectInput("select", label = "Select Species", 
                             choices = unique(trees$COMMON_NAME), 
                             selected = "Cedar, white"),
-                sliderInput("rangeDBH", "DBH (cm)", min(trees$DBH_TRUNK), max(trees$DBH_TRUNK),
+                sliderInput("rangeDBH", "DBH (cm)", min(0), max(trees$DBH_TRUNK),
                             value = range(trees$DBH_TRUNK), step = 5, sep = ""
-                )
+                ),
                 
+                
+  ),
+  # https://shiny.rstudio.com/articles/tag-glossary.html
+  absolutePanel(left = 6, bottom = 0,
+                p("Street tree data from", tags$a(href="https://open.toronto.ca/dataset/street-tree-data/", "Open Data Toronto")),
+                p("Source code", tags$a(href="https://github.com/frasemcl/open-data-to", "on GitHub"))
   ),
   absolutePanel(bottom = 21, right = 6,
                 img(src = "FO_LOGO.svg", height = 20)
