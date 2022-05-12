@@ -106,8 +106,7 @@ leaflet(treesSF[1:10000,]) %>%
 
  
 # EXPORT back to a CSV, that will be read into the Shiny App:
-# You may have to delete the file first if it already exists.
-st_write(treesSF, "./shiny-tree-app/data/treesSF.csv", layer_options = "GEOMETRY=AS_XY")
+st_write(treesSF, "./tor-tree-app-v2/data/treesSF.csv", layer_options = "GEOMETRY=AS_XY", delete_dsn = T)
 
 
 

@@ -10,8 +10,12 @@ library(leaflet)
 library(sf)
 library(leaflet.extras)
 library(RColorBrewer)
+library(shinyWidgets)
 
-
+#TO FIXXX - while editing I need to change my working dir to
+# setwd('C:/Users/fmclaughlin/Documents/Projects/GitHub/open-data-to/tor-tree-app-v2')
+#then back to
+# setwd('C:/Users/fmclaughlin/Documents/Projects/GitHub/open-data-to')
 
 # read data:
 trees<-st_as_sf(read_csv("data/treesSF.csv"), coords = c("X", "Y"), crs = 4326)
@@ -25,23 +29,33 @@ ui <- bootstrapPage(
   tags$style(type = "text/css", "html, body {width:100%;height:100%}"),
   leafletOutput("mymap", width = "100%", height = "100%"),
   absolutePanel(top = 14, left = 66,
-                selectInput("select", label = "Select Species", 
+                pickerInput("select", label = "Select Species", 
                             choices = unique(trees$COMMON_NAME), 
-                            selected = "Cedar, white"),
-                sliderInput("rangeDBH", "DBH (cm)", min(0), max(trees$DBH_TRUNK),
+                            selected = unique(trees$COMMON_NAME)[1:10],
+                            options = list(`actions-box` = TRUE),
+                            multiple = T),
+                
+                ### FIX unable to deselect all...add a 'must be truthy' statement?
+                
+                selectInput("select2", label = "Select Street", 
+                            choices = unique(trees$STREETNAME), 
+                            selected = unique(trees$STREETNAME)),
+                
+                
+                sliderInput("rangeDBH", "Select DBH (cm) Range", min(0), max(trees$DBH_TRUNK),
                             value = range(trees$DBH_TRUNK), step = 5, sep = ""
                 ),
                 
                 
   ),
   # https://shiny.rstudio.com/articles/tag-glossary.html
-  absolutePanel(left = 6, bottom = 0,
-                p("Street tree data from", tags$a(href="https://open.toronto.ca/dataset/street-tree-data/", "Open Data Toronto")),
-                p("Source code", tags$a(href="https://github.com/frasemcl/open-data-to", "on GitHub"))
-  ),
-  absolutePanel(bottom = 21, right = 6,
-                img(src = "FO_LOGO.svg", height = 20)
+  absolutePanel(right = 6, bottom = 6,
+                p("Street tree data from", tags$a(href="https://open.toronto.ca/dataset/street-tree-data/", "Open Data Toronto"),
+                  "Source code", tags$a(href="https://github.com/frasemcl/open-data-to", "on GitHub"), style = "font-size: 80%")
   )
+  # absolutePanel(bottom = 21, right = 6,
+  #               img(src = "FO_LOGO.svg", height = 20)
+  # )
 )
 
 
