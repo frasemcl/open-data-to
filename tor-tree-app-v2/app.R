@@ -31,15 +31,13 @@ ui <- bootstrapPage(
   absolutePanel(top = 14, left = 66,
                 pickerInput("select", label = "Select Species", 
                             choices = unique(trees$COMMON_NAME), 
-                            selected = unique(trees$COMMON_NAME)[1:10],
+                            selected = unique(trees$COMMON_NAME),
                             options = list(`actions-box` = TRUE),
                             multiple = T),
-                
-                ### FIX unable to deselect all...add a 'must be truthy' statement?
-                
-                selectInput("select2", label = "Select Street", 
-                            choices = unique(trees$STREETNAME), 
-                            selected = unique(trees$STREETNAME)),
+                selectizeInput("select2", label = "Select Street(s)", 
+                            choices = sort(unique(trees$STREETNAME)), 
+                            selected = c("BLOOR ST E", "BLOOR ST W", "DANFORTH AVE"), multiple = TRUE,
+                            options = NULL),
                 
                 
                 sliderInput("rangeDBH", "Select DBH (cm) Range", min(0), max(trees$DBH_TRUNK),
@@ -67,8 +65,12 @@ server <- function(input, output, session) {
     trees %>%
       filter(trees$DBH_TRUNK >= input$rangeDBH[1] &
                trees$DBH_TRUNK <= input$rangeDBH[2] &
-               trees$COMMON_NAME == input$select)
+               trees$STREETNAME %in% input$select2 &
+               trees$COMMON_NAME %in% input$select)
   })
+  
+  
+  ##TRY selectize server side? https://shiny.rstudio.com/articles/selectize.html
   
   output$mymap <- renderLeaflet({
     leaflet(trees) %>%
